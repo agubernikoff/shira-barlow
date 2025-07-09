@@ -1,9 +1,43 @@
 body {
   margin: 0;
 }
-
 /* 
+------------------------------------------------------------------------
+Header
+------------------------------------------------------------------------
+*/
+
+.header {
+  position: fixed;
+  z-index: 20;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  width: 100vw;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+.header > a:has(> img) {
+  transform: translate(0, 20%);
+  pointer-events: auto;
+}
+.header a {
+  color: black;
+  text-decoration: none;
+}
+.header > nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  pointer-events: auto;
+}
+
+/*
+------------------------------------------------------------------------
 routes/_index
+------------------------------------------------------------------------
 */
 
 .carousel-container {

@@ -21,7 +21,16 @@ export default function Index() {
     <div>
       <HeroImages rawImages={rawImages} />
       <AnimatePresence mode="popLayout">
-        {displayPopUp && <PopUp popup={homePage.popup} close={close} />}
+        {displayPopUp && (
+          <motion.div
+            className="homepage-popup"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <PopUp popup={homePage.popup} close={close} />
+          </motion.div>
+        )}
       </AnimatePresence>
     </div>
   );
@@ -142,12 +151,7 @@ function HeroImages({ rawImages }) {
 
 function PopUp({ popup, close }) {
   return (
-    <motion.div
-      className="homepage-popup"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <>
       <button onClick={close}>
         <svg
           width="12"
@@ -170,6 +174,6 @@ function PopUp({ popup, close }) {
           },
         }}
       />
-    </motion.div>
+    </>
   );
 }

@@ -6,8 +6,11 @@ import {
   Scripts,
   ScrollRestoration,
   json,
+  useLoaderData,
 } from "@remix-run/react";
 import { motion, AnimatePresence } from "motion/react";
+import Header from "./components/Header";
+import { HOME_QUERY, SETTINGS_QUERY } from "./sanity/queries";
 import { client } from "./sanity/SanityClient";
 import appStyles from "./styles/app.css?url";
 
@@ -19,11 +22,13 @@ export const links = () => [
 ];
 
 export async function loader({ request }) {
-  const homePage = await client
-    .fetch("*[_type == 'home'][0]{...,heroImages[]{...,asset->{url}}}")
+  const homePage = await client.fetch(HOME_QUERY).then((response) => response);
+  const settings = await client
+    .fetch(SETTINGS_QUERY)
     .then((response) => response);
   const data = {
     homePage,
+    settings,
   };
 
   return json(data);
@@ -32,6 +37,7 @@ export async function loader({ request }) {
 export default function App() {
   const outlet = useOutlet();
   const location = useLocation();
+  const data = useLoaderData();
   return (
     <html lang="en">
       <head>
@@ -41,6 +47,7 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <Header header={data.settings.header} />
         <AnimatePresence mode="wait" initial={false}>
           <motion.main
             key={location.pathname}
