@@ -20,7 +20,7 @@ export const links = () => [
 
 export async function loader({ request }) {
   const homePage = await client
-    .fetch("*[_type == 'home'][0]{...,heroImages[]{asset->{url}}}")
+    .fetch("*[_type == 'home'][0]{...,heroImages[]{...,asset->{url}}}")
     .then((response) => response);
   const data = {
     homePage,
