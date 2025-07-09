@@ -1,27 +1,37 @@
 import {
   Links,
   Meta,
-  Outlet,
+  useOutlet,
+  useLocation,
   Scripts,
   ScrollRestoration,
+  json,
 } from "@remix-run/react";
-
-import "./tailwind.css";
+import { motion, AnimatePresence } from "motion/react";
+import { client } from "./sanity/SanityClient";
+import appStyles from "./styles/app.css?url";
 
 export const links = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
-  {
-    rel: "preconnect",
-    href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
-  },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+    href: appStyles,
   },
 ];
 
-export function Layout({ children }) {
+export async function loader({ request }) {
+  const homePage = await client
+    .fetch("*[_type == 'home'][0]{...,heroImages[]{asset->{url}}}")
+    .then((response) => response);
+  const data = {
+    homePage,
+  };
+
+  return json(data);
+}
+
+export default function App() {
+  const outlet = useOutlet();
+  const location = useLocation();
   return (
     <html lang="en">
       <head>
@@ -31,14 +41,20 @@ export function Layout({ children }) {
         <Links />
       </head>
       <body>
-        {children}
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.main
+            key={location.pathname}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            // transition={{ duration: .5 }}
+          >
+            {outlet}
+          </motion.main>
+        </AnimatePresence>
         <ScrollRestoration />
         <Scripts />
       </body>
     </html>
   );
-}
-
-export default function App() {
-  return <Outlet />;
 }
