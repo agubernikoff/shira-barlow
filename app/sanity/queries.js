@@ -37,3 +37,8 @@ export const SETTINGS_QUERY = `*[_type == "settings"][0]{
         }
     }
 }`;
+
+export const SANITY_PAGE_QUERY = `*[_type == "page" && slug.current == $slug][0]{
+    ...,
+    "slug": slug.current
+  }`;

@@ -1,5 +1,4 @@
 import { NavLink } from "@remix-run/react";
-import React from "react";
 import { urlFor } from "../sanity/SanityClient";
 
 function Header({ header }) {
@@ -17,13 +16,23 @@ function Header({ header }) {
   );
 }
 
-function Menu({ menu }) {
-  console.log(menu);
+export function Menu({ menu, location }) {
+  console.log("menu", menu);
+  function activeStyles({ isActive }) {
+    if (location === "pages")
+      return {
+        opacity: isActive ? 1 : 0.25,
+      };
+  }
   const links = menu?.links?.map((link) => {
     if (link._type === "linkInternal") {
       if (link.reference?._type === "page")
         return (
-          <NavLink to={`/pages/${link.reference.slug}`} key={link._key}>
+          <NavLink
+            to={`/pages/${link.reference.slug}`}
+            key={link._key}
+            style={activeStyles}
+          >
             {link.reference.title}
           </NavLink>
         );

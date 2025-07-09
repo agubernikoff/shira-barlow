@@ -21,7 +21,7 @@ export const links = () => [
   },
 ];
 
-export async function loader({ request }) {
+export async function loader() {
   const homePage = await client.fetch(HOME_QUERY).then((response) => response);
   const settings = await client
     .fetch(SETTINGS_QUERY)
@@ -38,6 +38,7 @@ export default function App() {
   const outlet = useOutlet();
   const location = useLocation();
   const data = useLoaderData();
+  console.log("root: ", data);
   return (
     <html lang="en">
       <head>
@@ -50,7 +51,11 @@ export default function App() {
         <Header header={data.settings.header} />
         <AnimatePresence mode="wait" initial={false}>
           <motion.main
-            key={location.pathname}
+            key={
+              location.pathname.startsWith("/pages")
+                ? "/pages"
+                : location.pathname
+            }
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
