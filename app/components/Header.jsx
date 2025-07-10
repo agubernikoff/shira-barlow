@@ -26,6 +26,12 @@ export function Menu({ menu, location }) {
   }
   const links = menu?.links?.map((link) => {
     if (link._type === "linkInternal") {
+      if (!link.reference)
+        return (
+          <NavLink to={link.path} key={link._key}>
+            {link.title}
+          </NavLink>
+        );
       if (link.reference?._type === "page")
         return (
           <NavLink
