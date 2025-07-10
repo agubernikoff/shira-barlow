@@ -168,3 +168,51 @@ routes/pages
   justify-content: center;
   height: 100%;
 }
+
+/*
+------------------------------------------------------------------------
+routes/even-better
+------------------------------------------------------------------------
+*/
+
+.even-better-content-container {
+  max-width: 380px;
+  margin-inline: auto;
+  padding-top: 25vh;
+  box-sizing: border-box;
+  overflow: auto;
+  scrollbar-width: none;
+}
+.even-better-content-container::-webkit-scrollbar {
+  display: none;
+}
+.even-better-content-container > img {
+  width: 100%;
+}
+.even-better-content-container > p {
+  font-size: 15px;
+}
+.even-better-content-container a,
+.even-better-content-container a > strong {
+  font-size: 12px;
+  color: black;
+  text-underline-offset: 5px;
+}
+.even-better-links-container:hover > .even-better-link {
+  opacity: 0.45;
+}
+.even-better-link {
+  font-size: 17px !important;
+  text-decoration: none !important;
+  display: flex;
+  align-items: flex-start;
+  gap: 2px;
+  margin-block: 1rem;
+  transition: opacity 300ms ease-in-out;
+}
+.even-better-link:hover {
+  opacity: 1 !important;
+}
+.even-better-link > span {
+  font-size: 9px;
+}

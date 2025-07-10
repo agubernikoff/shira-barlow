@@ -10,7 +10,11 @@ import {
 } from "@remix-run/react";
 import { motion, AnimatePresence } from "motion/react";
 import Header from "./components/Header";
-import { HOME_QUERY, SETTINGS_QUERY } from "./sanity/queries";
+import {
+  EVEN_BETTER_QUERY,
+  HOME_QUERY,
+  SETTINGS_QUERY,
+} from "./sanity/queries";
 import { client } from "./sanity/SanityClient";
 import appStyles from "./styles/app.css?url";
 
@@ -26,9 +30,11 @@ export async function loader() {
   const settings = await client
     .fetch(SETTINGS_QUERY)
     .then((response) => response);
+  const evenBetter = await client.fetch(EVEN_BETTER_QUERY).then((r) => r);
   const data = {
     homePage,
     settings,
+    evenBetter,
   };
 
   return json(data);

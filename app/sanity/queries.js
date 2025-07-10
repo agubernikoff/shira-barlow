@@ -55,3 +55,14 @@ export const SANITY_PAGE_QUERY = `*[_type == "page" && slug.current == $slug][0]
     ...,
     "slug": slug.current
   }`;
+
+export const EVEN_BETTER_QUERY = `*[_type == 'evenBetter'][0]{
+    ...,
+    logo{
+        ...,
+        asset->{
+            ...,
+            url
+        }
+    }
+}`;
