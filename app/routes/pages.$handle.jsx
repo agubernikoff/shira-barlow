@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { PortableText } from "@portabletext/react";
 
 export const meta = ({ data }) => {
-  return [{ title: `Shira Barlow, M.S. RD ${data?.sanityPage.title ?? ""}` }];
+  return [{ title: `Shira Barlow, M.S. RD | ${data?.sanityPage.title ?? ""}` }];
 };
 
 export async function loader({ params }) {

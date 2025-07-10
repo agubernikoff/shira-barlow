@@ -35,6 +35,19 @@ export const SETTINGS_QUERY = `*[_type == "settings"][0]{
             "slug": slug.current
             }
         }
+    },
+    evenBetterHero{
+        ...,
+        images[]{
+            ...,
+            image{
+                ...,
+                asset->{
+                    ...,
+                    url
+                }
+            }
+        }
     }
 }`;
 
