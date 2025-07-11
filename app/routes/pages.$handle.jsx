@@ -43,7 +43,9 @@ export default function Page() {
         exit={{ opacity: 0 }}
         className="page-content"
       >
-        <PortableText value={data?.sanityPage?.body} />
+        <div className="page-content-portable-text-container">
+          <PortableText value={data?.sanityPage?.body} />
+        </div>
       </motion.div>
     </AnimatePresence>
   );
