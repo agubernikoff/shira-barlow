@@ -128,14 +128,40 @@ function HeroImages({ rawImages }) {
         onMouseEnter={(e) => handleMouseEnter(e, "prev")}
         onMouseLeave={() => setHovered(null)}
         onClick={prev}
-      />
+      >
+        <svg
+          width="17"
+          height="13"
+          viewBox="0 0 17 13"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0.469669 5.96967C0.176777 6.26256 0.176777 6.73744 0.469669 7.03033L5.24264 11.8033C5.53553 12.0962 6.01041 12.0962 6.3033 11.8033C6.59619 11.5104 6.59619 11.0355 6.3033 10.7426L2.06066 6.5L6.3033 2.25736C6.59619 1.96447 6.59619 1.48959 6.3033 1.1967C6.01041 0.903806 5.53553 0.903806 5.24264 1.1967L0.469669 5.96967ZM17 6.5V5.75H1V6.5V7.25H17V6.5Z"
+            fill="black"
+          />
+        </svg>
+      </button>
       <button
         className="carousel-button right"
         onMouseMove={(e) => handleMouseMove(e, "next")}
         onMouseEnter={(e) => handleMouseEnter(e, "next")}
         onMouseLeave={() => setHovered(null)}
         onClick={next}
-      />
+      >
+        <svg
+          width="17"
+          height="13"
+          viewBox="0 0 17 13"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16.5303 7.03033C16.8232 6.73744 16.8232 6.26256 16.5303 5.96967L11.7574 1.1967C11.4645 0.903806 10.9896 0.903806 10.6967 1.1967C10.4038 1.48959 10.4038 1.96447 10.6967 2.25736L14.9393 6.5L10.6967 10.7426C10.4038 11.0355 10.4038 11.5104 10.6967 11.8033C10.9896 12.0962 11.4645 12.0962 11.7574 11.8033L16.5303 7.03033ZM0 6.5V7.25H16V6.5V5.75H0V6.5Z"
+            fill="black"
+          />
+        </svg>
+      </button>
 
       {hovered && (
         <div

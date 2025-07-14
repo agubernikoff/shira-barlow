@@ -30,14 +30,22 @@ export function MobileExpandableMenu({ menu, children }) {
     return null;
   };
 
+  const [firstRender, setFirstRender] = useState(true);
   useEffect(() => {
-    setTimeout(() => {
-      ref.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-        inline: "nearest",
-      });
-    }, 300);
+    setFirstRender(false);
+    if (location.pathname.includes("pages") && !firstRender)
+      setTimeout(() => {
+        const element = ref.current;
+        const header = document.querySelector(".header"); // Use your header class
+        const headerHeight = header ? header.offsetHeight : 0;
+        const elementPosition = element.offsetTop;
+        const offsetPosition = elementPosition - headerHeight - 10; // Extra 20px padding
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }, 300);
   }, [location.pathname]);
 
   const currentPageData = getCurrentPageData();
