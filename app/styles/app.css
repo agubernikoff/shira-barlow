@@ -4,6 +4,30 @@
 
 body {
   margin: 0;
+  font-family: "regular";
+}
+
+@font-face {
+  font-family: "regular";
+  src: url("/fonts/regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "bold";
+  src: url("/fonts/bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "medium";
+  src: url("/fonts/medium.otf") format("opentype");
+}
+
+strong {
+  font-family: "medium";
+}
+
+a > strong {
+  font-family: "bold";
 }
 /* 
 ------------------------------------------------------------------------
@@ -226,6 +250,9 @@ routes/even-better
   box-sizing: border-box;
   overflow: auto;
   scrollbar-width: none;
+}
+.even-better-content-container a {
+  font-family: "bold";
 }
 .even-better-content-container::-webkit-scrollbar {
   display: none;
