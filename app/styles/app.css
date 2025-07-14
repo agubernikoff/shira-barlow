@@ -251,7 +251,7 @@ routes/even-better
   overflow: auto;
   scrollbar-width: none;
 }
-.even-better-content-container a {
+.even-better-content-container p > a {
   font-family: "bold";
 }
 .even-better-content-container::-webkit-scrollbar {
