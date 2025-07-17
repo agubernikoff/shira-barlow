@@ -48,6 +48,15 @@ export const SETTINGS_QUERY = `*[_type == "settings"][0]{
                 }
             }
         }
+    },
+    instagramLink{
+        ...,
+        icon{
+            ...,
+            asset->{
+                url
+            }
+        }
     }
 }`;
 

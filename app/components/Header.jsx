@@ -22,7 +22,7 @@ const mobileMenuVariants = {
 };
 
 const menuItemVariants = {
-  hidden: { opacity: 0, y: 10 },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
@@ -39,7 +39,7 @@ const menuItemVariants = {
   },
 };
 
-function Header({ header }) {
+function Header({ header, instagramLink }) {
   const { logo, menu } = header;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   function toggle() {
@@ -58,7 +58,7 @@ function Header({ header }) {
             animate="visible"
             exit="exit"
           >
-            <MobileMenu menu={menu} />
+            <MobileMenu menu={menu} instagramLink={instagramLink} />
           </motion.div>
         )}
       </AnimatePresence>
@@ -75,7 +75,7 @@ function Header({ header }) {
 }
 
 export function Menu({ menu, location }) {
-  console.log("menu", menu);
+  // console.log("menu", menu);
   function activeStyles({ isActive }) {
     if (location === "pages")
       return {
@@ -197,14 +197,20 @@ function MenuToggle({ isMobileMenuOpen, toggle }) {
   );
 }
 
-function MobileMenu({ menu }) {
+function MobileMenu({ menu, instagramLink }) {
   return (
     <>
       <motion.div variants={menuItemVariants}>
         <Menu menu={menu} />
       </motion.div>
       <motion.div variants={menuItemVariants} className="mobile-menu-ig-link">
-        <div>x</div>
+        <a
+          href={instagramLink?.instagram?.url}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img src={instagramLink?.icon?.asset?.url} alt="instagram" />
+        </a>
       </motion.div>
     </>
   );

@@ -54,7 +54,10 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Header header={data.settings.header} />
+        <Header
+          header={data.settings.header}
+          instagramLink={data?.settings?.instagramLink}
+        />
         <AnimatePresence mode="wait" initial={false}>
           <motion.main
             key={
