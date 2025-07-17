@@ -101,6 +101,12 @@ export function Menu({ menu, location }) {
           </NavLink>
         );
     }
+    if (link._type === "linkEmail")
+      return (
+        <a href={`mailto:${link.email}`} key={link._key}>
+          Contact
+        </a>
+      );
   });
   return <nav>{links}</nav>;
 }
