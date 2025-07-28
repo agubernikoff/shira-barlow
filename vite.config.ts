@@ -21,4 +21,5 @@ export default defineConfig({
     }),
     tsconfigPaths(),
   ],
+  server:{allowedHosts:['kitten-composed-notably.ngrok-free.app']}
 });
