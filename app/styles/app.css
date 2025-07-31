@@ -296,7 +296,7 @@ media queries
 ------------------------------------------------------------------------
 */
 
-@media (max-width: 500px) {
+@media (max-width: 767px) {
   body > main {
     margin-top: var(--mobile-header-height);
   }
