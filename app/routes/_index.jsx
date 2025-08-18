@@ -11,11 +11,16 @@ export default function Index() {
   const { homePage } = useRouteLoaderData("root");
   const rawImages = homePage?.heroImages?.filter(Boolean) || [];
 
-  const [displayPopUp, setDisplayPopUp] = useState(true);
+  const [displayPopUp, setDisplayPopUp] = useState(false);
 
   function close() {
     setDisplayPopUp(false);
   }
+
+  useEffect(() => {
+    const timer = setTimeout(() => setDisplayPopUp(true), 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div>
@@ -27,6 +32,7 @@ export default function Index() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ delay: displayPopUp ? 0 : 0.5 }}
           >
             <PopUp popup={homePage.popup} close={close} />
           </motion.div>

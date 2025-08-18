@@ -274,8 +274,6 @@ routes/even-better
   color: black;
   text-underline-offset: 5px;
 }
-.even-better-links-container {
-}
 .even-better-links-container:hover > .even-better-link {
   opacity: 0.45;
 }
