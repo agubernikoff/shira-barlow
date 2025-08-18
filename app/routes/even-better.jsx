@@ -49,6 +49,246 @@ function EvenBetter() {
               {link.text}
             </a>
           ))}
+          {evenBetter?.articleLinks?.map((link, i) => (
+            <a
+              key={link._key}
+              href={link.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="even-better-link"
+            >
+              <span>
+                {i + 1 < 10 ? 0 : ""}
+                {i + 1}
+              </span>
+              {link.text}
+            </a>
+          ))}
+          {evenBetter?.articleLinks?.map((link, i) => (
+            <a
+              key={link._key}
+              href={link.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="even-better-link"
+            >
+              <span>
+                {i + 1 < 10 ? 0 : ""}
+                {i + 1}
+              </span>
+              {link.text}
+            </a>
+          ))}
+          {evenBetter?.articleLinks?.map((link, i) => (
+            <a
+              key={link._key}
+              href={link.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="even-better-link"
+            >
+              <span>
+                {i + 1 < 10 ? 0 : ""}
+                {i + 1}
+              </span>
+              {link.text}
+            </a>
+          ))}
+          {evenBetter?.articleLinks?.map((link, i) => (
+            <a
+              key={link._key}
+              href={link.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="even-better-link"
+            >
+              <span>
+                {i + 1 < 10 ? 0 : ""}
+                {i + 1}
+              </span>
+              {link.text}
+            </a>
+          ))}
+          {evenBetter?.articleLinks?.map((link, i) => (
+            <a
+              key={link._key}
+              href={link.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="even-better-link"
+            >
+              <span>
+                {i + 1 < 10 ? 0 : ""}
+                {i + 1}
+              </span>
+              {link.text}
+            </a>
+          ))}
+          {evenBetter?.articleLinks?.map((link, i) => (
+            <a
+              key={link._key}
+              href={link.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="even-better-link"
+            >
+              <span>
+                {i + 1 < 10 ? 0 : ""}
+                {i + 1}
+              </span>
+              {link.text}
+            </a>
+          ))}
+          {evenBetter?.articleLinks?.map((link, i) => (
+            <a
+              key={link._key}
+              href={link.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="even-better-link"
+            >
+              <span>
+                {i + 1 < 10 ? 0 : ""}
+                {i + 1}
+              </span>
+              {link.text}
+            </a>
+          ))}
+          {evenBetter?.articleLinks?.map((link, i) => (
+            <a
+              key={link._key}
+              href={link.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="even-better-link"
+            >
+              <span>
+                {i + 1 < 10 ? 0 : ""}
+                {i + 1}
+              </span>
+              {link.text}
+            </a>
+          ))}
+          {evenBetter?.articleLinks?.map((link, i) => (
+            <a
+              key={link._key}
+              href={link.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="even-better-link"
+            >
+              <span>
+                {i + 1 < 10 ? 0 : ""}
+                {i + 1}
+              </span>
+              {link.text}
+            </a>
+          ))}
+          {evenBetter?.articleLinks?.map((link, i) => (
+            <a
+              key={link._key}
+              href={link.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="even-better-link"
+            >
+              <span>
+                {i + 1 < 10 ? 0 : ""}
+                {i + 1}
+              </span>
+              {link.text}
+            </a>
+          ))}
+          {evenBetter?.articleLinks?.map((link, i) => (
+            <a
+              key={link._key}
+              href={link.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="even-better-link"
+            >
+              <span>
+                {i + 1 < 10 ? 0 : ""}
+                {i + 1}
+              </span>
+              {link.text}
+            </a>
+          ))}
+          {evenBetter?.articleLinks?.map((link, i) => (
+            <a
+              key={link._key}
+              href={link.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="even-better-link"
+            >
+              <span>
+                {i + 1 < 10 ? 0 : ""}
+                {i + 1}
+              </span>
+              {link.text}
+            </a>
+          ))}
+          {evenBetter?.articleLinks?.map((link, i) => (
+            <a
+              key={link._key}
+              href={link.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="even-better-link"
+            >
+              <span>
+                {i + 1 < 10 ? 0 : ""}
+                {i + 1}
+              </span>
+              {link.text}
+            </a>
+          ))}
+          {evenBetter?.articleLinks?.map((link, i) => (
+            <a
+              key={link._key}
+              href={link.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="even-better-link"
+            >
+              <span>
+                {i + 1 < 10 ? 0 : ""}
+                {i + 1}
+              </span>
+              {link.text}
+            </a>
+          ))}
+          {evenBetter?.articleLinks?.map((link, i) => (
+            <a
+              key={link._key}
+              href={link.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="even-better-link"
+            >
+              <span>
+                {i + 1 < 10 ? 0 : ""}
+                {i + 1}
+              </span>
+              {link.text}
+            </a>
+          ))}
+          {evenBetter?.articleLinks?.map((link, i) => (
+            <a
+              key={link._key}
+              href={link.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              className="even-better-link"
+            >
+              <span>
+                {i + 1 < 10 ? 0 : ""}
+                {i + 1}
+              </span>
+              {link.text}
+            </a>
+          ))}
         </div>
       </div>
     </div>

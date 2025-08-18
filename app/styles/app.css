@@ -255,6 +255,8 @@ routes/even-better
   box-sizing: border-box;
   overflow: auto;
   scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
 }
 .even-better-content-container p > a {
   font-family: "bold";
@@ -273,6 +275,10 @@ routes/even-better
   font-size: 12px;
   color: black;
   text-underline-offset: 5px;
+}
+.even-better-links-container {
+  flex: 1;
+  overflow: auto;
 }
 .even-better-links-container:hover > .even-better-link {
   opacity: 0.45;
