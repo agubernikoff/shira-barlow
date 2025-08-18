@@ -189,7 +189,7 @@ routes/pages
 }
 .pages-content-container {
   display: flex;
-  padding: 30vh 10vw 0;
+  padding: 25vh 10vw 0;
   box-sizing: border-box;
   gap: 24px;
 }
@@ -273,6 +273,8 @@ routes/even-better
   font-size: 12px;
   color: black;
   text-underline-offset: 5px;
+}
+.even-better-links-container {
 }
 .even-better-links-container:hover > .even-better-link {
   opacity: 0.45;
