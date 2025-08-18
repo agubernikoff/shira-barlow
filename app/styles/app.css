@@ -189,14 +189,14 @@ routes/pages
 }
 .pages-content-container {
   display: flex;
-  padding-inline: 10vw;
+  padding: 30vh 10vw 0;
   box-sizing: border-box;
   gap: 24px;
 }
 .pages-content-container > nav {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   height: 100%;
   gap: 1rem;
   font-size: 12px;
@@ -209,7 +209,7 @@ routes/pages
 .page-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   height: 100%;
 }
 .page-content-portable-text-container {
@@ -220,6 +220,9 @@ routes/pages
 }
 .page-content-portable-text-container::-webkit-scrollbar {
   display: none;
+}
+.page-content-portable-text-container > :first-child {
+  margin-top: 0;
 }
 .mobile-expandable-menu {
   display: none;
@@ -379,6 +382,7 @@ media queries
     height: fit-content;
   }
   .pages-content-container {
+    padding-top: 0;
     padding-inline: 1rem;
     display: block;
   }
