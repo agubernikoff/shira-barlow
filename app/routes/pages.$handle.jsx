@@ -3,7 +3,7 @@ import { SANITY_PAGE_QUERY } from "../sanity/queries";
 import { client } from "../sanity/SanityClient";
 import { motion, AnimatePresence } from "motion/react";
 import { PortableText } from "@portabletext/react";
-import articleLinks from "../components/articleLinks";
+import articleLinks from "../components/ArticleLinks";
 
 export const meta = ({ data }) => {
   return [{ title: `Shira Barlow, M.S. RD | ${data?.sanityPage.title ?? ""}` }];
