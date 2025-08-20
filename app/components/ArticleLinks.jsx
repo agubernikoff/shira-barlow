@@ -1,7 +1,6 @@
 import React from "react";
 
 function ArticleLinks({ value }) {
-  console.log(value.links);
   return (
     <div className="even-better-links-container">
       {(value.links || value.articleLinks).map((link, i) => (
