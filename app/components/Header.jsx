@@ -76,13 +76,7 @@ function Header({ header, instagramLink }) {
 
 export function Menu({ menu, location }) {
   const [hovered, setHovered] = useState("");
-  // console.log("menu", menu);
-  function activeStyles({ isActive }) {
-    if (location === "pages")
-      return {
-        opacity: isActive ? 1 : 0.25,
-      };
-  }
+
   const links = menu?.links?.map((link) => {
     if (link._type === "linkInternal") {
       if (!link.reference)
@@ -130,6 +124,7 @@ export function Menu({ menu, location }) {
         </a>
       );
   });
+
   return <nav>{links}</nav>;
 }
 
