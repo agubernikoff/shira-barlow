@@ -75,6 +75,7 @@ function Header({ header, instagramLink }) {
 }
 
 export function Menu({ menu, location }) {
+  const [hovered, setHovered] = useState("");
   // console.log("menu", menu);
   function activeStyles({ isActive }) {
     if (location === "pages")
@@ -86,7 +87,14 @@ export function Menu({ menu, location }) {
     if (link._type === "linkInternal") {
       if (!link.reference)
         return (
-          <NavLink to={link.path} key={link._key}>
+          <NavLink
+            to={link.path}
+            key={link._key}
+            onMouseEnter={() => {
+              if (location === "pages") setHovered(link.title);
+            }}
+            onMouseLeave={() => setHovered("")}
+          >
             {link.title}
           </NavLink>
         );
@@ -95,7 +103,21 @@ export function Menu({ menu, location }) {
           <NavLink
             to={`/pages/${link.reference.slug}`}
             key={link._key}
-            style={activeStyles}
+            style={({ isActive }) => {
+              let opacity = 1;
+              if (location === "pages") {
+                if (hovered === link.reference.title) {
+                  opacity = 1;
+                } else if (!isActive) {
+                  opacity = 0.25;
+                }
+              }
+              return { opacity };
+            }}
+            onMouseEnter={() => {
+              if (location === "pages") setHovered(link.reference.title);
+            }}
+            onMouseLeave={() => setHovered("")}
           >
             {link.reference.title}
           </NavLink>
