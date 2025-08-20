@@ -257,9 +257,8 @@ routes/even-better
 */
 
 .even-better-content-container {
-  max-width: 380px;
   margin-inline: auto;
-  padding: 25vh 1rem 0;
+  padding: 25vh 10vw 0;
   box-sizing: border-box;
   overflow: auto;
   scrollbar-width: none;
@@ -286,7 +285,6 @@ routes/even-better
 }
 .even-better-links-container {
   flex: 1;
-  overflow: auto;
 }
 .even-better-links-container:hover > .even-better-link {
   opacity: 0.45;
