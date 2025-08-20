@@ -225,6 +225,13 @@ routes/pages
 .page-content-portable-text-container > :first-child {
   margin-top: 0;
 }
+.page-content-portable-text-container .even-better-link {
+  font-size: inherit !important;
+  color: black;
+}
+.page-content-portable-text-container .even-better-link:first-of-type {
+  margin-top: 0;
+}
 .mobile-expandable-menu {
   display: none;
 }

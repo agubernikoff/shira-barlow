@@ -3,6 +3,7 @@ import { SANITY_PAGE_QUERY } from "../sanity/queries";
 import { client } from "../sanity/SanityClient";
 import { motion, AnimatePresence } from "motion/react";
 import { PortableText } from "@portabletext/react";
+import articleLinks from "../components/articleLinks";
 
 export const meta = ({ data }) => {
   return [{ title: `Shira Barlow, M.S. RD | ${data?.sanityPage.title ?? ""}` }];
@@ -45,7 +46,14 @@ export default function Page() {
         className="page-content"
       >
         <div className="page-content-portable-text-container">
-          <PortableText value={data?.sanityPage?.body} />
+          <PortableText
+            value={data?.sanityPage?.body}
+            components={{
+              types: {
+                articleLinks: articleLinks,
+              },
+            }}
+          />
         </div>
       </motion.div>
     </AnimatePresence>
