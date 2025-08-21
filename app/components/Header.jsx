@@ -226,7 +226,7 @@ function MobileMenu({ menu, instagramLink }) {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <img src={instagramLink?.icon?.asset?.url} alt="instagram" />
+          Instagram
         </a>
       </motion.div>
     </>
