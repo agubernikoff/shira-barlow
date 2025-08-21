@@ -264,6 +264,10 @@ routes/even-better
   scrollbar-width: none;
   display: flex;
   flex-direction: column;
+  gap: 1em;
+}
+.even-better-content-container > * {
+  margin: 0;
 }
 .even-better-content-container p > a {
   font-family: "bold";
