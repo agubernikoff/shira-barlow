@@ -146,9 +146,9 @@ function MenuToggle({ isMobileMenuOpen, toggle }) {
         <motion.line
           key={"line1"}
           className="line"
-          x1="0"
+          x1="5"
           y1="10.5"
-          x2="27"
+          x2="21"
           y2="10.5"
           stroke="black"
           initial={{ opacity: 1 }}
@@ -158,51 +158,51 @@ function MenuToggle({ isMobileMenuOpen, toggle }) {
         <motion.line
           key={"line2"}
           className="line"
-          x1="0"
+          x1="5"
           y1="14.5"
-          x2="27"
+          x2="21"
           y2="14.5"
           stroke="black"
           style={{
             transformOrigin: "center",
             transform: isMobileMenuOpen
-              ? "rotate(-15deg) translateY(2px)"
+              ? "rotate(-45deg) translateY(4px)"
               : "rotate(0deg) translateY(0px)",
           }}
           initial={{ rotate: 0, y: 0 }}
           animate={{
-            rotate: isMobileMenuOpen ? "-15deg" : "0deg",
-            y: isMobileMenuOpen ? "2px" : 0,
+            rotate: isMobileMenuOpen ? "-45deg" : "0deg",
+            y: isMobileMenuOpen ? "4px" : 0,
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         />
         <motion.line
           key={"line3"}
           className="line"
-          x1="0"
+          x1="5"
           y1="18.5"
-          x2="27"
+          x2="21"
           y2="18.5"
           stroke="black"
           style={{
             transformOrigin: "center",
             transform: isMobileMenuOpen
-              ? "rotate(15deg) translateY(-2px)"
+              ? "rotate(45deg) translateY(0px)"
               : "rotate(0deg) translateY(0px)",
           }}
           initial={{ rotate: 0, y: 0 }}
           animate={{
-            rotate: isMobileMenuOpen ? "15deg" : "0deg",
-            y: isMobileMenuOpen ? "-2px" : 0,
+            rotate: isMobileMenuOpen ? "45deg" : "0deg",
+            y: isMobileMenuOpen ? "0px" : 0,
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         />
         <motion.line
           key={"line4"}
           className="line"
-          x1="0"
+          x1="5"
           y1="22.5"
-          x2="27"
+          x2="21"
           y2="22.5"
           stroke="black"
           initial={{ opacity: 1 }}
