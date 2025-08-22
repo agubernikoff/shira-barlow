@@ -56,6 +56,7 @@ export default function App() {
       <body>
         <Header
           header={data.settings.header}
+          turnHeaderLogo={data.settings.turnHeaderLogo || false}
           instagramLink={data?.settings?.instagramLink}
         />
         <AnimatePresence mode="wait" initial={false}>

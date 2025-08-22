@@ -39,14 +39,40 @@ const menuItemVariants = {
   },
 };
 
-function Header({ header, instagramLink }) {
+function Header({ header, instagramLink, turnHeaderLogo }) {
   const { logo, menu } = header;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [inlineSvg, setInlineSvg] = useState(null);
+  const { pathname } = useLocation();
+
   function toggle() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   }
-  const { pathname } = useLocation();
+
   useEffect(() => setIsMobileMenuOpen(false), [pathname]);
+
+  // Get the logo URL
+  const logoUrl = logo?.asset?.url || urlFor(logo).url();
+  const isSvg = logoUrl?.includes(".svg");
+
+  // If it's an SVG, fetch its raw content once
+  useEffect(() => {
+    if (isSvg) {
+      fetch(logoUrl)
+        .then((res) => res.text())
+        .then((svgText) => {
+          if (turnHeaderLogo && pathname.includes("/pages")) {
+            // Replace any fill/stroke with white
+            svgText = svgText
+              .replace(/fill="[^"]*"/g, 'fill="white"')
+              .replace(/stroke="[^"]*"/g, 'stroke="white"');
+          }
+          setInlineSvg(svgText);
+        })
+        .catch((err) => console.error("Failed to fetch SVG:", err));
+    }
+  }, [isSvg, logoUrl, turnHeaderLogo, pathname]);
+
   return (
     <div className="header">
       <AnimatePresence mode="popLayout">
@@ -62,12 +88,21 @@ function Header({ header, instagramLink }) {
           </motion.div>
         )}
       </AnimatePresence>
+
       <NavLink to="/">
-        <img
-          alt="Shira Barlow, M.S. RD"
-          src={urlFor(logo).auto("format").fit("crop").url()}
-        />
+        {isSvg && inlineSvg ? (
+          <div
+            className="logo-svg"
+            dangerouslySetInnerHTML={{ __html: inlineSvg }}
+          />
+        ) : (
+          <img
+            alt="Shira Barlow, M.S. RD"
+            src={urlFor(logo).auto("format").fit("crop").url()}
+          />
+        )}
       </NavLink>
+
       <Menu menu={menu} />
       <MenuToggle isMobileMenuOpen={isMobileMenuOpen} toggle={toggle} />
     </div>
