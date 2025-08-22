@@ -2,6 +2,7 @@ import { NavLink, useLocation } from "@remix-run/react";
 import { urlFor } from "../sanity/SanityClient";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import InlineSvg from "./InvlineSvg";
 
 const mobileMenuVariants = {
   hidden: { y: "-100%" },
@@ -42,36 +43,22 @@ const menuItemVariants = {
 function Header({ header, instagramLink, turnHeaderLogo }) {
   const { logo, menu } = header;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [inlineSvg, setInlineSvg] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
   const { pathname } = useLocation();
 
   function toggle() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   }
 
-  useEffect(() => setIsMobileMenuOpen(false), [pathname]);
-
-  // Get the logo URL
-  const logoUrl = logo?.asset?.url || urlFor(logo).url();
-  const isSvg = logoUrl?.includes(".svg");
-
-  // If it's an SVG, fetch its raw content once
+  // Track window width
   useEffect(() => {
-    if (isSvg) {
-      fetch(logoUrl)
-        .then((res) => res.text())
-        .then((svgText) => {
-          if (turnHeaderLogo && pathname.includes("/pages")) {
-            // Replace any fill/stroke with white
-            svgText = svgText
-              .replace(/fill="[^"]*"/g, 'fill="white"')
-              .replace(/stroke="[^"]*"/g, 'stroke="white"');
-          }
-          setInlineSvg(svgText);
-        })
-        .catch((err) => console.error("Failed to fetch SVG:", err));
-    }
-  }, [isSvg, logoUrl, turnHeaderLogo, pathname]);
+    const handleResize = () => setIsMobile(window.innerWidth <= 767);
+    handleResize(); // check initial load
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => setIsMobileMenuOpen(false), [pathname]);
 
   return (
     <div className="header">
@@ -90,17 +77,16 @@ function Header({ header, instagramLink, turnHeaderLogo }) {
       </AnimatePresence>
 
       <NavLink to="/">
-        {isSvg && inlineSvg ? (
-          <div
-            className="logo-svg"
-            dangerouslySetInnerHTML={{ __html: inlineSvg }}
-          />
-        ) : (
-          <img
-            alt="Shira Barlow, M.S. RD"
-            src={urlFor(logo).auto("format").fit("crop").url()}
-          />
-        )}
+        <InlineSvg
+          image={logo}
+          alt="Shira Barlow, M.S. RD"
+          className="header-logo"
+          forceColor={
+            turnHeaderLogo && pathname.includes("/pages") && !isMobile
+              ? "white"
+              : undefined
+          }
+        />
       </NavLink>
 
       <Menu menu={menu} />
@@ -262,7 +248,11 @@ function MobileMenu({ menu, instagramLink }) {
           target="_blank"
         >
           Instagram
-          {/* <img src={instagramLink?.icon?.asset?.url} alt="instagram" /> */}
+          {/* <InlineSvg
+            image={instagramLink?.icon}
+            alt="Instagram"
+            className="ig-icon"
+          /> */}
         </a>
       </motion.div>
     </>

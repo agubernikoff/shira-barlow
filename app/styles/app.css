@@ -59,10 +59,10 @@ Header
   font-size: 12px;
   pointer-events: auto;
 }
-.logo-svg {
+.header-logo {
   width: clamp(188px, 20vw, 300px);
 }
-.logo-svg > svg {
+.header-logo > svg {
   width: 100%;
   height: auto;
   min-width: 188px;
