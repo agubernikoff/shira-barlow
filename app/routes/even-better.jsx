@@ -51,8 +51,12 @@ function CollageImage({ image }) {
       src={image.image.asset.url}
       style={{
         position: "absolute",
-        [image.horizontalAlignFrom ?? "left"]: image.horizontalPosition ?? "0",
-        [image.verticalAlignFrom ?? "top"]: image.verticalPosition ?? "0",
+        [image.horizontalAlignFrom && !image.centerHorizontally
+          ? image.centerHorizontally
+          : "left"]: image.horizontalPosition ?? "0",
+        [image.verticalAlignFrom && !image.centerVertically
+          ? image.verticalAlignFrom
+          : "top"]: image.verticalPosition ?? "0",
         width: image.width ?? "auto",
         zIndex: image.zIndex ?? 1,
         objectFit: "cover",
