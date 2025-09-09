@@ -29,7 +29,7 @@ function Pages() {
           target="_blank"
         >
           <span>{settings.aboutPageLittleLink?.text}</span>
-          <svg
+          {/* <svg
             width="9"
             height="11"
             viewBox="0 0 9 11"
@@ -40,7 +40,7 @@ function Pages() {
               d="M9 5.5L-4.89399e-07 10.6962L-3.51373e-08 0.303847L9 5.5Z"
               fill="black"
             />
-          </svg>
+          </svg> */}
         </a>
       </div>
     </div>

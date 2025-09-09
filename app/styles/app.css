@@ -254,9 +254,10 @@ routes/pages
   position: absolute;
   bottom: 1rem;
   right: 1rem;
-  padding: 0.5rem;
+  padding: 0.5rem 0.75rem;
   background: rgba(255, 244, 206, 1);
   box-sizing: border-box;
+  font-size: 12px;
 }
 
 /*
