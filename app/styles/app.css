@@ -223,7 +223,7 @@ routes/pages
   height: 100%;
 }
 .page-content-portable-text-container {
-  max-height: 80vh;
+  /* max-height: 80vh; */
   overflow: auto;
   scrollbar-width: none;
   font-size: 12px;
