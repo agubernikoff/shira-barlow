@@ -24,8 +24,8 @@ function EvenBetter() {
       >
         {mappedImages}
       </div>
-      <div className="even-better-content-container">
-        <img src={evenBetter?.logo?.asset?.url} alt="" />
+      <div className="even-better-content-container page-content-portable-text-container">
+        {/* <img src={evenBetter?.logo?.asset?.url} alt="" /> */}
         <PortableText
           value={evenBetter?.headerText}
           components={{

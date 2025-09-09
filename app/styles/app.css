@@ -148,10 +148,10 @@ routes/_index
   left: 2rem;
   /* transform: translate(-50%, -50%); */
   background: rgba(255, 255, 255, 0.75);
-  padding: 4rem 5rem;
+  padding: 1.5rem 2rem;
   z-index: 10;
   width: 80vw;
-  max-width: 497px;
+  max-width: 387px;
   box-sizing: border-box;
   text-align: center;
 }
@@ -287,9 +287,9 @@ routes/even-better
 .even-better-content-container > img {
   width: 100%;
 }
-.even-better-content-container > p {
+/* .even-better-content-container > p {
   font-size: 15px;
-}
+} */
 .even-better-content-container a,
 .even-better-content-container a > strong {
   font-size: 12px;
