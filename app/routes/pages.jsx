@@ -5,6 +5,7 @@ import { urlFor } from "../sanity/SanityClient";
 
 function Pages() {
   const { settings } = useRouteLoaderData("root");
+  console.log(settings);
   return (
     <div className="pages-container">
       <div className="pages-hero-container">
@@ -23,11 +24,11 @@ function Pages() {
         </div>
         <a
           className="listen-link"
-          href="https://open.spotify.com/"
+          href={settings.aboutPageLittleLink?.url}
           rel="noopener noreferrer"
           target="_blank"
         >
-          <span>Listen</span>
+          <span>{settings.aboutPageLittleLink?.text}</span>
           <svg
             width="9"
             height="11"
