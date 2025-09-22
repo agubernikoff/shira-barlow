@@ -5,7 +5,14 @@ import { urlFor } from "../sanity/SanityClient";
 import SanityExternalLink from "../sanity/SanityExternalLink";
 import { motion, AnimatePresence } from "motion/react";
 
-export const meta = () => [{ title: "Shira Barlow, M.S. RD" }];
+export const meta = () => [
+  { title: "Shira Barlow, M.S. RD" },
+  {
+    name: "description",
+    content:
+      "I’m Shira Barlow, MS RD a Los Angeles–based registered dietitian. For the last 14+ years I’ve been helping clients in private practice feel really good (or even better). :)",
+  },
+];
 
 export default function Index() {
   const { homePage } = useRouteLoaderData("root");
