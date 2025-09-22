@@ -144,6 +144,19 @@ export function Menu({ menu, location }) {
           Contact
         </a>
       );
+    if (link._type === "linkExternal") {
+      console.log(link);
+      return (
+        <a
+          href={link?.url}
+          rel="noopener noreferrer"
+          target="_blank"
+          key={link._key}
+        >
+          {link.text}
+        </a>
+      );
+    }
   });
 
   return <nav>{links}</nav>;
@@ -241,20 +254,16 @@ function MobileMenu({ menu, instagramLink }) {
       <motion.div variants={menuItemVariants}>
         <Menu menu={menu} />
       </motion.div>
-      <motion.div variants={menuItemVariants} className="mobile-menu-ig-link">
+      {/* <motion.div variants={menuItemVariants} className="mobile-menu-ig-link">
         <a
           href={instagramLink?.instagram?.url}
           rel="noopener noreferrer"
           target="_blank"
         >
           Instagram
-          {/* <InlineSvg
-            image={instagramLink?.icon}
-            alt="Instagram"
-            className="ig-icon"
-          /> */}
+          
         </a>
-      </motion.div>
+      </motion.div> */}
     </>
   );
 }
