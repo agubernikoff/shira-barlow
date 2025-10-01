@@ -25,6 +25,49 @@ export const links = () => [
   },
 ];
 
+export const meta = () => {
+  return [
+    {
+      "script:ld+json": {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Shira Barlow",
+        url: "https://shirard.com",
+        jobTitle:
+          "Registered Dietitian, Celebrity Nutritionist, Hormonal Health Nutritionist, PCOS Nutritionist",
+        worksFor: {
+          "@type": "Organization",
+          name: "Goop",
+        },
+        sameAs: [
+          "https://www.instagram.com/shira_rd/",
+          "https://www.linkedin.com/in/shira-barlow-ms-rd-4266586b/",
+          "https://shirard.substack.com/",
+          "https://www.facebook.com/ShiraLenchewski/",
+        ],
+        description:
+          "Shira Barlow is a Celebrity Nutritionist specializing in Blood Sugar Balancing, Weight Loss, GLP-1 Nutritionist programs, Hormonal Health, and Nutrition for Moms. Featured in Goop as a Celebrity Dietitian, she shares expert guidance on PCOS, Hormonal Health, and balanced diets on her Nutritionist Substack.",
+        knowsAbout: [
+          "Nutritionist Substack",
+          "Blood sugar balancing",
+          "Celebrity Nutritionist",
+          "Goop Nutritionist",
+          "Celebrity Dietitian",
+          "PCOS Nutritionist",
+          "Hormonal Health Nutritionist",
+          "Weight Loss",
+          "GLP-1 Nutritionist",
+          "Nutritionist for Moms",
+        ],
+        alumniOf: {
+          "@type": "CollegeOrUniversity",
+          name: "New York University",
+        },
+      },
+    },
+  ];
+};
+
 export async function loader() {
   const homePage = await client.fetch(HOME_QUERY).then((response) => response);
   const settings = await client
