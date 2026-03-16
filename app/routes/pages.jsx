@@ -5,7 +5,7 @@ import { urlFor } from "../sanity/SanityClient";
 
 function Pages() {
   const { settings } = useRouteLoaderData("root");
-  console.log(settings);
+  // console.log(settings);
   return (
     <div className="pages-container">
       <div className="pages-hero-container">
@@ -22,14 +22,16 @@ function Pages() {
         <div className="pages-outlet">
           <Outlet />
         </div>
-        <a
-          className="listen-link"
-          href={settings.aboutPageLittleLink?.url}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <span>{settings.aboutPageLittleLink?.text}</span>
-          {/* <svg
+        {settings.aboutPageLittleLink?.url &&
+          settings.aboutPageLittleLink?.text && (
+            <a
+              className="listen-link"
+              href={settings.aboutPageLittleLink?.url}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span>{settings.aboutPageLittleLink?.text}</span>
+              {/* <svg
             width="9"
             height="11"
             viewBox="0 0 9 11"
@@ -41,7 +43,8 @@ function Pages() {
               fill="black"
             />
           </svg> */}
-        </a>
+            </a>
+          )}
       </div>
     </div>
   );

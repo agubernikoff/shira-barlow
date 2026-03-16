@@ -87,7 +87,7 @@ export default function App() {
   const outlet = useOutlet();
   const location = useLocation();
   const data = useLoaderData();
-  console.log("root: ", data);
+  // console.log("root: ", data);
   return (
     <html lang="en">
       <head>
